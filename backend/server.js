@@ -1,12 +1,16 @@
 //using Express Js to create server
 const express = require('express');
-const serverApp = express();
-const port =3001;
 //the router Ref
 const rTasks = require("./routers/tasks.js");
 
-//middleware to access the static public files
-serverApp.use(express.static("./public"));
+const serverApp = express();
+const port =3001;
+
+serverApp.set("view engine", "ejs");
+//parse json data
+serverApp.use(express.json());
+//parse form data
+serverApp.use(express.urlencoded({extended:false}))
 serverApp.use(rTasks);
 
 

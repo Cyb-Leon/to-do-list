@@ -3,6 +3,8 @@
  * 
  **/
 
+
+
 //Enum states - Open/Completed
 const State = {
     OPEN:0,
@@ -16,7 +18,8 @@ const getTasks = (req,res) => {
     //get records
     
     //send html table back to client
-    //close 'db' connection
+    res.status(200).render("index");
+ 
 }
 
 //Add new task record to db
@@ -26,6 +29,7 @@ const addTask = (req,res) => {
     // add new task name & default state: OPEN
     
     //send html table back to client order:DSC
+    res.status(200).render("index");
 }
 
 //Update a task's status & name
@@ -34,7 +38,8 @@ const updateTask = (req,res) => {
     //get records
     
     //send html table back to client
-    //close 'db' connection
+    res.status(200).render("index");
+ 
 }
 
 module.export = {
