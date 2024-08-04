@@ -42,7 +42,7 @@ const updateTask = (req,res) => {
  
 }
 
-module.export = {
+export {
     getTasks,
     addTask,
     updateTask

@@ -1,17 +1,16 @@
 //using Express Js to create server
-const express = require('express');
-//the router Ref
-const rTasks = require("./routers/tasks.js");
+import express from "express";
+import morgan from "morgan";
 
+//instance of our server called ServerApp
 const serverApp = express();
-const port =3001;
+const port = 3001;
 
-serverApp.set("view engine", "ejs");
-//parse json data
-serverApp.use(express.json());
-//parse form data
-serverApp.use(express.urlencoded({extended:false}))
-serverApp.use(rTasks);
+//middleware logging Morgan
+serverApp.use(morgan("tiny"));
 
+serverApp.get("/",(req,res)=>{
+    res.send("Sho dawg");
+})
 
-serverApp.listen(port, () => console.log(`To-Do List server listening on port ${port}!`))
+serverApp.listen(port, () => console.log(`server listening on port ${port}!`))
