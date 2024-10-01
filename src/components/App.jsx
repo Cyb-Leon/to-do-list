@@ -1,11 +1,20 @@
 import React from "react";
-import "./styletail.css";
+import "./App.css";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
 import Login from "./login/Login";
 import Note from "./Note";
 import notes from "../notes";
-import { Input, Ripple, initTWE } from "tw-elements";
+import { Input, Ripple, initTWE } from "tw-elements-react";
+
+// const usersDB = new pg.Client({
+//   user: process.env.gresUsr,
+//   host: process.env.gresHOST,
+//   database: process.env.gresDB,
+//   password:process.env.gresPSW,
+//   port: process.env.gressPORT
+// })
+// usersDB.connect();
 
 initTWE({ Input, Ripple });
 
@@ -20,37 +29,38 @@ function createNotes(noteItem) {
   );
 }
 
-let loggedIn = false;
+let isLoggedIn = false;
 
-const users =[
-  {
-    id: 1,
-    username: "Leon",
-    userpass: 12345
-  },
-  {
-    id:2,
-    username: "Zama",
-    userpass: 12344
-  }
+// const users =[
+//   {
+//     id: 1,
+//     username: "Leon",
+//     userpass: 12345
+//   },
+//   {
+//     id:2,
+//     username: "Zama",
+//     userpass: 12344
+//   }
 
-]
+// ]
 
 
-function renderConditionally(props) {
-  if (!loggedIn) { 
-    return (
-      <div>
-        <Login/>
-        <Footer/>
-        </div>);
-  } else {
-    return     ( 
-     <div> <Header />
-      {notes.map(createNotes)}
-      <Footer /> 
-      </div>);
-  }
+ function renderConditionally() {
+
+  //get users
+  // const users = usersDB.query(
+  //   "SELECT email, password FROM users WHERE email=($1) AND password=($2)", [props.username, props.psw], (err, results) => {
+  //     if (err) {
+  //       return err;
+  //     } else {
+
+  //     }
+  //   }
+  // )
+
+  //ternary operator
+  return (!isLoggedIn ? (<div> <Login/> <Footer/> </div>) :(<div> <Header /> {notes.map(createNotes)} <Footer /> </div>))
 }
 
 function App() {
