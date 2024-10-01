@@ -6,6 +6,7 @@ import Login from "./login/Login";
 import Note from "./Note";
 import notes from "../notes";
 import { Input, Ripple, initTWE } from "tw-elements";
+import Signup from "./register/Signup";
 
 // const usersDB = new pg.Client({
 //   user: process.env.gresUsr,
@@ -68,9 +69,17 @@ function App() {
 useEffect(()=>{
   initTWE({ Input, Ripple });
 },[])
- return <div>
-    {renderConditionally()}
- </div>
+ if (isLoggedIn === undefined) {
+   return <div>
+    <Signup/>
+   </div> 
+ }else{
+  return <div>
+  {renderConditionally()}
+
+</div>
+ }
+
 
 }
 

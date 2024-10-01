@@ -2,7 +2,6 @@ import Input from "../layout/Input";
 import React from "react";
 
 
-
 function login() {
     return (
       <section className="h-screen">
@@ -135,10 +134,7 @@ function login() {
       </div>
     </section>   
     );
-
 }
-
-
 export default login;
 
 
