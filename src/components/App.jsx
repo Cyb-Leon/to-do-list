@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./layout/header";
 import Footer from "./layout/footer";
 import Login from "./login/Login";
 import Note from "./Note";
 import notes from "../notes";
-import { Input, Ripple, initTWE } from "tw-elements-react";
+import { Input, Ripple, initTWE } from "tw-elements";
 
 // const usersDB = new pg.Client({
 //   user: process.env.gresUsr,
@@ -16,7 +16,7 @@ import { Input, Ripple, initTWE } from "tw-elements-react";
 // })
 // usersDB.connect();
 
-initTWE({ Input, Ripple });
+
 
 
 function createNotes(noteItem) {
@@ -65,6 +65,9 @@ let isLoggedIn = false;
 
 function App() {
   // const results = users.map((user) => user.username = ${givenUser})
+useEffect(()=>{
+  initTWE({ Input, Ripple });
+},[])
  return <div>
     {renderConditionally()}
  </div>
