@@ -20,7 +20,7 @@ function CreateArea(props) {
 
     //submit note
     function submitNote(event) {
-        props.onAdd(note);
+        props.onAdd(note); //access funtion from other compopen(App.jsx)
         setNote({
             title: "",
             content:""
